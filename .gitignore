@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.build/
+*.log
+.venv/
+.env
+.vscode/
+.DS_Store
+
+# Toolkit CLI build outputs
+/toolkit-cli/build/
+/toolkit-cli/src/toolkit_forge_cli.egg-info/
