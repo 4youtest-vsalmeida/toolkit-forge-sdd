@@ -3,7 +3,7 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: init-cycle.sh --stage <stage> [--cycle <sdd-XX|new>] [--feature <name>] [--product-context <comma-separated>]
+Usage: init-cycle.sh --stage <stage> [--cycle <sdd-XX|assess-XX|new>] [--feature <name>] [--product-context <comma-separated>]
 
 Stages: ideate, architect, plan, implement, assess
 
@@ -74,6 +74,14 @@ case "$stage" in
     ;;
 esac
 
+if [[ "$stage" == "assess" ]]; then
+  cycle_prefix="assess"
+  log_namespace="assess"
+else
+  cycle_prefix="sdd"
+  log_namespace="sdd"
+fi
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "${script_dir}/../../.." && pwd)"
 docs_root="${repo_root}/toolkit-forge-docs"
@@ -95,9 +103,9 @@ mkdir -p "$docs_root"
 if [[ -z "$cycle" || "$cycle" == "new" ]]; then
   max_id=0
   shopt -s nullglob
-  for dir in "${docs_root}"/sdd-*; do
+  for dir in "${docs_root}"/${cycle_prefix}-*; do
     base="$(basename "$dir")"
-    if [[ $base =~ ^sdd-([0-9]{2})$ ]]; then
+    if [[ $base =~ ^${cycle_prefix}-([0-9]{2})$ ]]; then
       num="${BASH_REMATCH[1]}"
       if ((10#$num > max_id)); then
         max_id=$((10#$num))
@@ -106,11 +114,20 @@ if [[ -z "$cycle" || "$cycle" == "new" ]]; then
   done
   shopt -u nullglob
   next=$((max_id + 1))
-  printf -v cycle "sdd-%02d" "$next"
+  printf -v cycle "%s-%02d" "$cycle_prefix" "$next"
 else
-  if [[ ! $cycle =~ ^sdd-[0-9]{2}$ ]]; then
-    echo "[ERROR] Invalid cycle format: $cycle" >&2
-    exit 1
+  if [[ "$stage" == "assess" ]]; then
+    if [[ ! $cycle =~ ^assess-[0-9]{2}$ ]]; then
+      echo "[ERROR] Invalid cycle format for assess stage: $cycle" >&2
+      echo "        Expected assess-XX (e.g., assess-01)." >&2
+      exit 1
+    fi
+  else
+    if [[ ! $cycle =~ ^sdd-[0-9]{2}$ ]]; then
+      echo "[ERROR] Invalid cycle format: $cycle" >&2
+      echo "        Expected sdd-XX (e.g., sdd-01)." >&2
+      exit 1
+    fi
   fi
 fi
 
@@ -118,7 +135,7 @@ cycle_dir="${docs_root}/${cycle}"
 stage_dir="${cycle_dir}/${stage}"
 mkdir -p "$stage_dir"
 
-log_dir="${repo_root}/logs/sdd/${cycle}/${stage}"
+log_dir="${repo_root}/logs/${log_namespace}/${cycle}/${stage}"
 mkdir -p "$log_dir"
 log_file="${log_dir}/init-cycle-$(date -u +"%Y%m%dT%H%M%SZ").log"
 
@@ -172,18 +189,20 @@ else
   jq -n "${jq_base_args[@]}" '
     {
       cycleId: $cycleId,
-      feature: $feature,
-      productContext: $productContext,
       createdAt: $ts,
       stages: {
-        ($stage): {
-          status: "initialized",
-          updatedAt: $ts,
-          feature: $feature,
-          productContext: $productContext
-        }
+        ($stage): (
+          {
+            status: "initialized",
+            updatedAt: $ts
+          }
+          + (if ($feature | length) > 0 then {feature: $feature} else {} end)
+          + (if ($productContext | length) > 0 then {productContext: $productContext} else {} end)
+        )
       }
     }
+    + (if ($feature | length) > 0 then {feature: $feature} else {} end)
+    + (if ($productContext | length) > 0 then {productContext: $productContext} else {} end)
   ' > "$metadata_path"
 fi
 

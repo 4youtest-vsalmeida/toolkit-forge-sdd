@@ -3,7 +3,7 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: check-prereqs.sh --stage <stage> [--cycle <sdd-XX>]
+Usage: check-prereqs.sh --stage <stage> [--cycle <sdd-XX|assess-XX|global>]
 
 Stages: ideate, architect, plan, implement, assess
 
@@ -62,9 +62,27 @@ case "$stage" in
     ;;
 esac
 
+if [[ "$stage" == "assess" ]]; then
+  log_namespace="assess"
+  cycle_pattern='^(assess-[0-9]{2}|global)$'
+else
+  log_namespace="sdd"
+  cycle_pattern='^(sdd-[0-9]{2}|global)$'
+fi
+
+if [[ ! $cycle =~ $cycle_pattern ]]; then
+  echo "[ERROR] Invalid cycle '$cycle' for stage '$stage'." >&2
+  if [[ "$stage" == "assess" ]]; then
+    echo "        Expected assess-XX or global." >&2
+  else
+    echo "        Expected sdd-XX or global." >&2
+  fi
+  exit 1
+fi
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "${script_dir}/../../.." && pwd)"
-log_dir="${repo_root}/logs/sdd/${cycle}/${stage}"
+log_dir="${repo_root}/logs/${log_namespace}/${cycle}/${stage}"
 mkdir -p "$log_dir"
 log_file="${log_dir}/check-prereqs-$(date -u +"%Y%m%dT%H%M%SZ").log"
 

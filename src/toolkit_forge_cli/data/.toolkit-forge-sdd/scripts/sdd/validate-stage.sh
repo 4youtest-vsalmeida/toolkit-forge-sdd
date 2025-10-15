@@ -3,7 +3,7 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: validate-stage.sh --stage <stage> --cycle <sdd-XX>
+Usage: validate-stage.sh --stage <stage> --cycle <sdd-XX|assess-XX>
 
 Stages: ideate, architect, plan, implement, assess
 
@@ -62,8 +62,16 @@ case "$stage" in
     ;;
 esac
 
-if [[ ! $cycle =~ ^sdd-[0-9]{2}$ ]]; then
-  echo "[ERROR] Invalid cycle format: $cycle" >&2
+if [[ "$stage" == "assess" ]]; then
+  cycle_pattern='^assess-[0-9]{2}$'
+  log_namespace="assess"
+else
+  cycle_pattern='^sdd-[0-9]{2}$'
+  log_namespace="sdd"
+fi
+
+if [[ ! $cycle =~ $cycle_pattern ]]; then
+  echo "[ERROR] Invalid cycle format for stage '$stage': $cycle" >&2
   usage
   exit 1
 fi
@@ -75,7 +83,7 @@ stage_dir="${cycle_dir}/${stage}"
 metadata_path="${cycle_dir}/metadata.json"
 traceability_path="${cycle_dir}/traceability.json"
 
-log_dir="${repo_root}/logs/sdd/${cycle}/${stage}"
+log_dir="${repo_root}/logs/${log_namespace}/${cycle}/${stage}"
 mkdir -p "$log_dir"
 log_file="${log_dir}/validate-stage-$(date -u +"%Y%m%dT%H%M%SZ").log"
 
