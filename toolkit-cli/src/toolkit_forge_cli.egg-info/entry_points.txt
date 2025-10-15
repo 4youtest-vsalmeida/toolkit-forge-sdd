@@ -1,0 +1,2 @@
+[console_scripts]
+toolkit-forge = toolkit_forge_cli.cli:main

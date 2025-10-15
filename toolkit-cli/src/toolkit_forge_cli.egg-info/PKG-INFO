@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: toolkit-forge-cli
+Version: 0.1.0
+Summary: CLI to initialize the Forge SDD toolkit structure
+Author: Toolkit Forge Maintainers
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Toolkit Forge CLI
+
+Command line utility that seeds a workspace with the Forge Specification-Driven Development (SDD) toolkit. The CLI copies the GitHub Copilot prompt and instruction packs, automation scripts, and document templates into the correct directories so a new project is ready for use in VS Code with Copilot Chat.
+
+## Installation
+
+```bash
+pip install .
+```
+
+## Usage
+
+From any empty or existing Forge app workspace, run:
+
+```bash
+toolkit-forge init
+```
+
+This command creates or updates:
+
+- `.github/` with the orchestrator prompts and instruction packs
+- `.toolkit-forge-sdd/` containing scripts, templates, and reference docs
+- `toolkit-forge-docs/` as an empty working area for generated cycle artifacts
+
+Pass `--force` to overwrite existing files instead of skipping them.
