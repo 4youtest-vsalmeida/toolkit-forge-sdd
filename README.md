@@ -20,7 +20,7 @@ uvx --from gh:<owner>/<repo>@<ref> toolkit-forge init
 Exemplo usando este repositório público:
 
 ```bash
-uvx --from gh:4youtest-vsalmeida/toolkit-forge-sdd@v0.1.2 toolkit-forge init
+uvx --from gh:4youtest-vsalmeida/toolkit-forge-sdd@v0.1.3 toolkit-forge init
 ```
 
 O `uvx` cria um ambiente temporário, expõe o comando `toolkit-forge` e já executa o `init` na pasta atual.
