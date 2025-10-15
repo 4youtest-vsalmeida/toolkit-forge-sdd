@@ -4,29 +4,26 @@ Command line utility that seeds a workspace with the Forge Specification-Driven 
 
 ## Installation
 
--```bash
+```bash
 pip install .
 ```
 
 ### Rodando direto com `uvx`
 
-Assim que o repositório estiver publicado, é possível executar o CLI sem instalá-lo
-permanentemente usando o [`uvx`](https://docs.astral.sh/uv/guides/tools/#running-tools-with-uvx):
+Como o pacote Python está na raiz do repositório, dá para executar sem instalar usando o
+[`uvx`](https://docs.astral.sh/uv/guides/tools/#running-tools-with-uvx):
 
 ```bash
 uvx gh:<owner>/<repo>@<ref> toolkit-forge init
 ```
 
-Substitua `<owner>`, `<repo>` e `<ref>` pela organização, nome do repositório e branch/tag
-respectivamente (por exemplo `gh:acme/toolkit-forge-cli@main`). Se o projeto estiver dentro de um
-subdiretório do repositório, acrescente `#subdirectory=toolkit-cli` ao final da referência:
+Exemplo usando este repositório público:
 
 ```bash
-uvx --from "git+https://github.com/<owner>/<repo>.git@<ref>#subdirectory=toolkit-cli" toolkit-forge init
+uvx gh:4youtest-vsalmeida/toolkit-forge-sdd@main toolkit-forge init
 ```
 
-Esses comandos criam um ambiente temporário, disponibilizam o executável `toolkit-forge` e já
-disparam o `init` na pasta corrente.
+O `uvx` cria um ambiente temporário, expõe o comando `toolkit-forge` e já executa o `init` na pasta atual.
 
 ## Usage
 

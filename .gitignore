@@ -8,6 +8,7 @@ __pycache__/
 .vscode/
 .DS_Store
 
-# Toolkit CLI build outputs
-/toolkit-cli/build/
-/toolkit-cli/src/toolkit_forge_cli.egg-info/
+# Build artifacts
+build/
+dist/
+src/toolkit_forge_cli.egg-info/
