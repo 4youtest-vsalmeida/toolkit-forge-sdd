@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "toolkit-forge-cli"
-version = "0.1.1"
+version = "0.1.2"
 description = "CLI to initialize the Forge SDD toolkit structure"
 readme = "README.md"
 authors = [
@@ -27,4 +27,4 @@ where = ["src"]
 toolkit-forge = "toolkit_forge_cli.cli:main"
 
 [tool.setuptools.package-data]
-"toolkit_forge_cli" = ["data/**/*"]
+toolkit_forge_cli = ["data/**/*"]
