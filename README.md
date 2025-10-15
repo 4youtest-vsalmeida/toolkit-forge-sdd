@@ -14,16 +14,18 @@ Como o pacote Python está na raiz do repositório, dá para executar sem instal
 [`uvx`](https://docs.astral.sh/uv/guides/tools/#running-tools-with-uvx):
 
 ```bash
-uvx gh:<owner>/<repo>@<ref> toolkit-forge init
+uvx --from gh:<owner>/<repo>@<ref> toolkit-forge init
 ```
 
 Exemplo usando este repositório público:
 
 ```bash
-uvx gh:4youtest-vsalmeida/toolkit-forge-sdd@main toolkit-forge init
+uvx --from gh:4youtest-vsalmeida/toolkit-forge-sdd@v0.1.1 toolkit-forge init
 ```
 
 O `uvx` cria um ambiente temporário, expõe o comando `toolkit-forge` e já executa o `init` na pasta atual.
+
+Sempre que um novo tag `v*` for criado, o GitHub Actions gera os pacotes (`wheel` e `sdist`) e anexa aos releases, permitindo que o `uvx` baixe os artefatos diretamente.
 
 ## Usage
 
