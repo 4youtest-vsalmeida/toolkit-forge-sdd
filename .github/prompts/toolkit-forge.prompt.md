@@ -35,7 +35,7 @@ Design and implement a Forge-specialized Specification-Driven Development (SDD) 
    - Document mandatory frontmatter fields for every prompt, instruction, template, and generated document (include `description`, `stage`, `docId`, `sourceStage`, `relatedIds`, `forgeContext`).
    - Define traceability tables mapping Requirements → Architecture Decisions → Plan Tasks → Implementation Artifacts → Assessment Findings, capturing Forge module selections, scopes, and deployment targets.
 3. **Reorganize Filesystem**
-   - Create `prompts/orchestrators/`, `instructions/orchestrators/`, `templates/orchestrators/`, `scripts/sdd/`, `docs/sdd/`.
+   - Ensure `.github/prompts/`, `instructions/orchestrators/`, `templates/orchestrators/`, `scripts/sdd/`, `docs/sdd/` exist.
    - Move or recreate stage-specific assets under the new structure; keep legacy files untouched until replacements are ready.
    - Provide README files in each top-level directory explaining purpose, Forge context coverage, and usage.
 4. **Author Stage Prompts**
@@ -70,7 +70,7 @@ Design and implement a Forge-specialized Specification-Driven Development (SDD) 
     - Offer migration guidance for legacy artifacts, including mapping tables and Forge-specific adaptations.
 
 ## Output Expectations
-- Five refreshed prompt files in `.github/prompts/orchestrators/` ready for Copilot Chat, each specialized for Atlassian Forge development.
+- Five refreshed prompt files in `.github/prompts/` ready for Copilot Chat, each specialized for Atlassian Forge development.
 - Five comprehensive instruction files in `.github/instructions/orchestrators/` detailing Forge-aware workflows.
 - Stage-specific template suites within `.toolkit-forge-sdd/templates/orchestrators/` embedding Forge constraints and traceability structures.
 - Automation scripts residing in `.toolkit-forge-sdd/scripts/sdd/` with executable permissions, supporting Forge CLI operations.

@@ -385,8 +385,8 @@ git status --ignored
 - [Git Documentation - .gitignore](https://git-scm.com/docs/gitignore)
 - [Git Glob Patterns](https://git-scm.com/docs/gitignore#_pattern_format)
 - [Forge Custom UI Architecture Guide](../../../docs/best-practices/forge-custom-ui-architecture.md)
-- [forge-architect.prompt.md](../../prompts/orchestrators/forge-architect.prompt.md) - Directory structure decision
-- [forge-implement.prompt.md](../../prompts/orchestrators/forge-implement.prompt.md) - Custom UI setup
+- [forge-architect.prompt.md](../../../.github/prompts/forge-architect.prompt.md) - Directory structure decision
+- [forge-implement.prompt.md](../../../.github/prompts/forge-implement.prompt.md) - Custom UI setup
 
 # ============================================
 # Dependencies
@@ -608,5 +608,5 @@ mkdir -p static/my-app
 
 - [Git Documentation - .gitignore](https://git-scm.com/docs/gitignore)
 - [Forge Custom UI](https://developer.atlassian.com/platform/forge/custom-ui/)
-- [forge-architect.prompt.md](../../prompts/orchestrators/forge-architect.prompt.md) - Directory structure decision
-- [forge-implement.prompt.md](../../prompts/orchestrators/forge-implement.prompt.md) - Custom UI setup
+- [forge-architect.prompt.md](../../../.github/prompts/forge-architect.prompt.md) - Directory structure decision
+- [forge-implement.prompt.md](../../../.github/prompts/forge-implement.prompt.md) - Custom UI setup

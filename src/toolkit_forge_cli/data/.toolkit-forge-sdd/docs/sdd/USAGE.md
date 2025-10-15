@@ -35,11 +35,11 @@ forgeContext:
 This guide outlines how to run Specification-Driven Development cycles for Atlassian Forge apps using the orchestrator prompts, templates, and automation scripts.
 
 ## Workflow Overview
-1. **Ideate** – Clarify product vision and capture requirements using `prompts/orchestrators/forge-ideate.prompt.md`. Outputs live under `docs/sdd/<cycleId>/ideate/`.
-2. **Architect** – Translate requirements into architecture decisions with `prompts/orchestrators/forge-architect.prompt.md`.
-3. **Plan** – Build the delivery roadmap via `prompts/orchestrators/forge-plan.prompt.md`.
-4. **Implement** – Execute plan tasks and capture evidence using `prompts/orchestrators/forge-implement.prompt.md`.
-5. **Assess** – Validate readiness for release through `prompts/orchestrators/forge-assess.prompt.md`.
+1. **Ideate** – Clarify product vision and capture requirements using `prompts/forge-ideate.prompt.md`. Outputs live under `docs/sdd/<cycleId>/ideate/`.
+2. **Architect** – Translate requirements into architecture decisions with `prompts/forge-architect.prompt.md`.
+3. **Plan** – Build the delivery roadmap via `prompts/forge-plan.prompt.md`.
+4. **Implement** – Execute plan tasks and capture evidence using `prompts/forge-implement.prompt.md`.
+5. **Assess** – Validate readiness for release through `prompts/forge-assess.prompt.md`.
 
 Each stage produces Markdown artifacts and updates `docs/sdd/<cycleId>/traceability.json` to maintain Requirement → Decision → Plan → Implementation → Assessment linkage.
 

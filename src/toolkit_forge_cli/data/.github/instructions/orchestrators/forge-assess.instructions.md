@@ -11,7 +11,7 @@ description: 'Instruction pack for the Forge SDD Assess stage'
 | stage | `assess` |
 | owner | Forge SDD Toolkit |
 | upstreamArtifacts | `SDD-{cycleId}-TASK-*`, `SDD-{cycleId}-DOC-*`, `SDD-{cycleId}-TEST-*` |
-| supportingPrompts | `prompts/orchestrators/forge-assess.prompt.md` |
+| supportingPrompts | `prompts/forge-assess.prompt.md` |
 | forgeContext.product | `jira`, `confluence`, `bitbucket`, `compass` |
 | forgeContext.module | `custom-ui`, `ui-kit`, `trigger`, `function`, `workflow-extension` |
 | forgeContext.environment | `staging`, `production` |

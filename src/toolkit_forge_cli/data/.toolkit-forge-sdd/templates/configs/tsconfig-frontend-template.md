@@ -448,4 +448,4 @@ export default defineConfig({
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
 - [Forge Custom UI Architecture Guide](../../../docs/best-practices/forge-custom-ui-architecture.md)
 - [vite-config-template.md](./vite-config-template.md) - Vite configuration template
-- [forge-implement.prompt.md](../../prompts/orchestrators/forge-implement.prompt.md) - Implementation guide
+- [forge-implement.prompt.md](../../../.github/prompts/forge-implement.prompt.md) - Implementation guide

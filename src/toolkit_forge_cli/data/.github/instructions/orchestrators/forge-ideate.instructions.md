@@ -18,7 +18,7 @@ description: 'Guidance for running the Forge SDD Ideate orchestrator prompt'
 Provide detailed guidance for the Ideate stage prompt, ensuring specification quality, Forge constraint awareness, and traceability enforcement.
 
 ## Quick Reference
-- Prompts: `prompts/orchestrators/forge-ideate.prompt.md`
+- Prompts: `prompts/forge-ideate.prompt.md`
 - Templates: `templates/orchestrators/ideate/`
 - Automation: `scripts/sdd/init-cycle.sh`, `scripts/sdd/check-prereqs.sh`, `scripts/sdd/validate-stage.sh`
 

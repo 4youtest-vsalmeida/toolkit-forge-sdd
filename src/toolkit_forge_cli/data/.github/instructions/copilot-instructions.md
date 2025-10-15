@@ -493,7 +493,7 @@ You're assisting users to build Forge apps using SDD methodology where:
 ## Need Help?
 
 Documentation in your project:
-- Slash commands: `.github/prompts/orchestrators/*.prompt.md`
+- Slash commands: `.github/prompts/*.prompt.md`
 - Policies: `.github/instructions/*.instructions.md`
 - Templates: `.toolkit-forge-sdd/templates/orchestrators/`
 - Best practices: `.toolkit-forge-sdd/docs/`

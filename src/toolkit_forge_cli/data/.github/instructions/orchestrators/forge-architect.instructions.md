@@ -10,7 +10,7 @@ description: 'Instruction pack for the Forge SDD Architect stage'
 | stage | `architect` |
 | owner | Forge SDD Toolkit |
 | upstreamArtifacts | `SDD-{cycleId}-REQ-*` |
-| supportingPrompts | `prompts/orchestrators/forge-architect.prompt.md` |
+| supportingPrompts | `prompts/forge-architect.prompt.md` |
 | forgeContext.product | `jira`, `confluence`, `bitbucket`, `compass` |
 | forgeContext.module | `ui-kit`, `custom-ui`, `function`, `trigger`, `workflow-extension` |
 | forgeContext.environment | `development`, `staging`, `production` |

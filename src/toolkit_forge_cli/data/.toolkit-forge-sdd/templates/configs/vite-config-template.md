@@ -479,5 +479,5 @@ plugins: [
 - [Vite React Plugin](https://github.com/vitejs/vite-plugin-react)
 - [Forge Custom UI](https://developer.atlassian.com/platform/forge/custom-ui/)
 - [Forge Custom UI Architecture Guide](../../../docs/best-practices/forge-custom-ui-architecture.md)
-- [forge-architect.prompt.md](../../prompts/orchestrators/forge-architect.prompt.md) - Build tool decision
-- [forge-implement.prompt.md](../../prompts/orchestrators/forge-implement.prompt.md) - Custom UI setup
+- [forge-architect.prompt.md](../../../.github/prompts/forge-architect.prompt.md) - Build tool decision
+- [forge-implement.prompt.md](../../../.github/prompts/forge-implement.prompt.md) - Custom UI setup

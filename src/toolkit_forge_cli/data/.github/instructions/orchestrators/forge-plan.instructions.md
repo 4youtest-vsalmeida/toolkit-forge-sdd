@@ -11,7 +11,7 @@ description: 'Instruction pack for the Forge SDD Plan stage'
 | stage | `plan` |
 | owner | Forge SDD Toolkit |
 | upstreamArtifacts | `SDD-{cycleId}-DEC-*` |
-| supportingPrompts | `prompts/orchestrators/forge-plan.prompt.md` |
+| supportingPrompts | `prompts/forge-plan.prompt.md` |
 | forgeContext.product | `jira`, `confluence`, `bitbucket`, `compass` |
 | forgeContext.module | `custom-ui`, `ui-kit`, `trigger`, `function`, `workflow-extension` |
 | forgeContext.environment | `development`, `staging`, `production` |

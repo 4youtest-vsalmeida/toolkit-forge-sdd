@@ -11,7 +11,7 @@ description: 'Instruction pack for the Forge SDD Implement stage'
 | stage | `implement` |
 | owner | Forge SDD Toolkit |
 | upstreamArtifacts | `SDD-{cycleId}-PLAN-*`, `SDD-{cycleId}-TASK-*` |
-| supportingPrompts | `prompts/orchestrators/forge-implement.prompt.md` |
+| supportingPrompts | `prompts/forge-implement.prompt.md` |
 | forgeContext.product | `jira`, `confluence`, `bitbucket`, `compass` |
 | forgeContext.module | `custom-ui`, `ui-kit`, `trigger`, `function`, `workflow-extension` |
 | forgeContext.environment | `development`, `staging` |

@@ -1010,8 +1010,8 @@ await invoke('myResolver', { data });
 
 ### forge-sdd-toolkit Resources
 
-- [forge-architect.prompt.md](../../prompts/orchestrators/forge-architect.prompt.md) - Architecture decisions
-- [forge-implement.prompt.md](../../prompts/orchestrators/forge-implement.prompt.md) - Implementation guide
+- [forge-architect.prompt.md](../../../.github/prompts/forge-architect.prompt.md) - Architecture decisions
+- [forge-implement.prompt.md](../../../.github/prompts/forge-implement.prompt.md) - Implementation guide
 - [vite-config-template.md](../../structure/templates/configs/vite-config-template.md) - Vite template
 - [gitignore-template.md](../../structure/templates/configs/gitignore-template.md) - Gitignore template
 
